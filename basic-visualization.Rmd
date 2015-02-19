@@ -1,0 +1,85 @@
+---
+title: "Basic R Data Visualization"
+author: "Jonathan Johnston"
+date: '2015-02-19'
+output: html_document
+---
+
+TODO: Add table of contents.
+
+### Introduction
+
+Let's do some fun and basic data visualization in R! There's lots of learning to do here, so I'm curious to see how far I can go with the basics in R.
+
+### Toy Data
+
+I'm going to need some data to play with:
+
+```{r}
+# Set a seed so pseudo-random number generation is consistent
+set.seed(1410)
+# matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+# runif(n, min = 0, max = 1) [n random numbers from unif dist]
+# 'dimnames' argument specifies row and column names respectively
+# LETTERS is a built-in constant of uppercase letters (letters is lowercase)
+y <- matrix(runif(30), ncol=3, dimnames=list(letters[1:10], LETTERS[1:3]))
+# Show the basic structure of the R object (in this case a matrix)
+str(y)
+# Show the data structures and types that I'm using
+class(y)
+class(y[1,1])
+```
+
+It's important to note (to myself mainly) that I'm using a matrix here, NOT a data frame. A data frame holds many different types of data, whereas a matrix only holds one data type; in this case the matrix only holds numerics.
+
+### Visualization with 'Plot'
+
+Now I can take a look at various ways of visualizing this toy data, starting with the basic 'plot' function. The specifications for plot are:
+
+```
+plot(x, y, ...)
+
+* x - coordinates of points in the plot
+* y - y coordinates of points in the plot (optional if x is appropriate structure)
+* type - type of plot
+    * "p" for points,
+    * "l" for lines,
+    * "b" for both,
+    * "c" for the lines part alone of "b",
+    * "o" for both ‘overplotted’,
+    * "h" for ‘histogram’ like (or ‘high-density’) vertical lines,
+    * "s" for stair steps,
+    * "S" for other steps (vertical then horizontal),
+    * "n" for no plotting.
+* main - overall title
+* sub - subtitle
+* xlab - x axis label
+* ylab - y axis label
+* asp - y/x aspect ratio
+```
+
+I can also use 'sub()' to set or query graphical parameters.
+
+```{r}
+plot(y[,1], y[,2], main="A Simple Plot")
+plot(y[,1], y[,2], main="A Plot with Axes Labels", xlab="A", ylab="B")
+par(bg="thistle")
+plot(y[,1], y[,2], main="A Coloured Etch-a-Sketch", xlab="A", ylab="B", type="s")
+```
+
+### Works Referenced
+
+TODO: Link these nicely into the text.
+
+1. [UC Riverside: Overview of Graphics and Data Visualization in R](http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Rgraphics/Rgraphics.pdf)
+2. [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+3. [R Matrices](http://stat.ethz.ch/R-manual/R-devel/library/base/html/matrix.html)
+4. [R Uniform Distribution](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Uniform.html)
+5. [Constants built into R](http://stat.ethz.ch/R-manual/R-devel/library/base/html/Constants.html)
+6. [View R structure with 'str()'](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/str.html)
+7. [Matrices versus Data Frames](https://stackoverflow.com/questions/5158790/data-frame-or-matrix)
+8. [R Data Frames](http://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html)
+9. [R Data Types](http://www.statmethods.net/input/datatypes.html)
+10. [R Generic X-Y Plotting](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/plot.html)
+11. [Set or Wuery Graphical Parameters in R](http://stat.ethz.ch/R-manual/R-devel/library/graphics/html/par.html)
+12. [R Markdown Basics](http://rmarkdown.rstudio.com/authoring_basics.html)

@@ -1,0 +1,12 @@
+# Cheatsheet (for all things good)
+
+TODO: Add in a table of contents
+
+## RStudio
+
+### Shortcuts
+
+Kick off Knitr
+```
+Ctrl + shift + K
+```
