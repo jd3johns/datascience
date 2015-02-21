@@ -5,7 +5,12 @@ date: '2015-02-19'
 output: html_document
 ---
 
-TODO: Add table of contents.
+### Table of Contents
+
+1. [Introduction][]
+2. [Toy Data][]
+3. [Visualization with 'Plot'][]
+4. [Works Referenced][]
 
 ### Introduction
 
@@ -62,7 +67,7 @@ I can also use 'sub()' to set or query graphical parameters.
 
 ```{r}
 plot(y[,1], y[,2], main="A Simple Plot")
-plot(y[,1], y[,2], main="A Plot with Axes Labels", xlab="A", ylab="B")
+plot(y[,1], y[,2], main="A Plot with Axis Labels", xlab="A", ylab="B")
 par(bg="thistle")
 plot(y[,1], y[,2], main="A Coloured Etch-a-Sketch", xlab="A", ylab="B", type="s")
 ```
